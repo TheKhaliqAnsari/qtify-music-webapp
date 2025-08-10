@@ -37,7 +37,7 @@ A modern, responsive music streaming web application built with React that provi
 
 1. **Clone the repository**
    ```bash
-   git clone <your-repository-url>
+   git clone https://github.com/TheKhaliqAnsari/qtify-music-webapp
    cd qtify-music-app
    ```
 
@@ -169,7 +169,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 If you have any questions or need help with the project, please feel free to:
 - Open an issue on GitHub
-- Contact the development team
 - Check the documentation
 
 ---
