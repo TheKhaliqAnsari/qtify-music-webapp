@@ -1,32 +1,30 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import Chip from '@mui/material/Chip';
-import headphone from '../../assets/headphones.png';
+import React from 'react';
+import { Card, CardContent, Typography, Chip } from '@mui/material';
 
 export default function AlbumCard({ data }) {
-  // Use dummy data if no data is passed
-  const albumData = data || {
-    image: headphone,
-    follows: 100,
-    title: "Sample Album"
-  };
+  const { image, follows, title } = data;
 
   return (
-    <Card sx={{ 
-      width: 160, 
-      height: 232, 
-      position: 'relative', 
-      borderRadius: '10px', 
-      overflow: 'hidden',
-      boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
-    }}>
-      {/* Album Image - Takes up most of the card */}
-      <div style={{ height: '205px', width: '100%', position: 'relative' }}>
+    <Card 
+      sx={{
+        width: '159px',
+        height: '205px',
+        borderRadius: '10px',
+        overflow: 'hidden',
+        boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+        position: 'relative'
+      }}
+    >
+      {/* Image container with exact dimensions */}
+      <div style={{
+        position: 'relative',
+        width: '159px',
+        height: '163px', // 205px - 42px for banner
+        overflow: 'hidden'
+      }}>
         <img 
-          src={albumData.image} 
-          alt={albumData.title}
+          src={image} 
+          alt={title}
           style={{
             width: '100%',
             height: '100%',
@@ -34,16 +32,16 @@ export default function AlbumCard({ data }) {
           }}
         />
         
-        {/* Follows Chip positioned at bottom of image */}
-        <Chip
-          label={`${albumData.follows} Follows`}
+        {/* Follows chip positioned at bottom-left of image */}
+        <Chip 
+          label={`${follows} Follows`}
           size="small"
           sx={{
             position: 'absolute',
             bottom: '6px',
             left: '6px',
-            backgroundColor: 'black',
-            color: 'white',
+            backgroundColor: '#000',
+            color: '#fff',
             fontSize: '12px',
             height: '24px',
             '& .MuiChip-label': {
@@ -52,27 +50,28 @@ export default function AlbumCard({ data }) {
           }}
         />
       </div>
-      
-      {/* Album Name - Bottom section */}
-      <CardContent sx={{ 
-        padding: '6px', 
-        height: '27px', 
-        display: 'flex', 
+
+      {/* Album title */}
+      <CardContent sx={{
+        padding: '6px',
+        height: '42px',
+        display: 'flex',
         alignItems: 'center',
-        '&:last-child': { paddingBottom: '6px' }
+        backgroundColor: '#fff'
       }}>
         <Typography 
           variant="body2" 
-          sx={{ 
+          sx={{
             fontSize: '14px',
             fontWeight: '500',
+            color: '#000',
             overflow: 'hidden',
             textOverflow: 'ellipsis',
             whiteSpace: 'nowrap',
             width: '100%'
           }}
         >
-          {albumData.title}
+          {title}
         </Typography>
       </CardContent>
     </Card>
