@@ -39,20 +39,16 @@ export default function Section({ title = "Top Albums" }) {
   const handleNext = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
       const swiper = swiperRef.current.swiper;
-      const currentIndex = swiper.activeIndex;
-      // Move exactly 3/4 of a card width (120px out of 160px)
-      const targetIndex = currentIndex + 0.75;
-      swiper.slideTo(targetIndex, 300);
+      // Move to next slide
+      swiper.slideNext();
     }
   };
 
   const handlePrev = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
       const swiper = swiperRef.current.swiper;
-      const currentIndex = swiper.activeIndex;
-      // Move exactly 3/4 of a card width backwards
-      const targetIndex = currentIndex - 0.75;
-      swiper.slideTo(targetIndex, 300);
+      // Move to previous slide
+      swiper.slidePrev();
     }
   };
 
@@ -142,7 +138,7 @@ export default function Section({ title = "Top Albums" }) {
               </SwiperSlide>
             ))}
             
-            {/* Custom Navigation Buttons with precise control */}
+            {/* Custom Navigation Buttons with working click handlers */}
             <Box
               onClick={handlePrev}
               sx={{
